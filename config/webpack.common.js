@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   // Where webpack looks to start building the bundle
@@ -18,7 +19,8 @@ module.exports = {
     // Generates an HTML file from a template
     new HtmlWebpackPlugin({
       title: 'Production',
-      template: paths.public + '/index.html',
+      favicon: paths.src + '/assets/favicon.ico',
+      template: paths.src + '/index.html',
       filename: 'index.html',
     }),
     //Eslint
@@ -28,6 +30,19 @@ module.exports = {
       // emitWarning: process.env.NODE_ENV !== 'production',
       //Screen about all warnings after every save is VERY ANNOYING, and I couldn't find how to disable it without disabling messages in console
       emitWarning: process.env.NODE_ENV === 'production',
+    }),
+    // Copies files from target to destination folder
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.public,
+          to: 'assets',
+          globOptions: {
+            ignore: ['*.DS_Store'],
+          },
+          noErrorOnMissing: true,
+        },
+      ],
     }),
   ],
 
