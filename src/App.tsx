@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
     const [num, setNum] = useState(0)
+    const unused = 42
 
     const setNumber = () => {
         const cat = {name: "Senya", age: 12}

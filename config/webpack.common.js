@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     // Where webpack looks to start building the bundle
@@ -21,6 +22,12 @@ module.exports = {
             template: paths.public + "/index.html",
             filename: 'index.html'
         }),
+        //Eslint
+        new ESLintPlugin({
+            extensions: ['js', 'jsx', 'ts', 'tsx'],
+            fix: true,
+            emitWarning: process.env.NODE_ENV !== 'production',
+        })
     ],
 
     module: {
