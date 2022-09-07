@@ -1,9 +1,9 @@
-name: deploy
+name: deployToGhPages
 on:
   push:
-    branches: [ "gh-pages_attempt" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "gh-pages_attempt" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -12,29 +12,29 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-    
+
     steps:
     - uses: actions/checkout@v3
       with:
-        ref: 'gh-pages_attempt'        
+        ref: 'gh-pages_attempt'
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        
+
     - name: install Yarn
       uses:  borales/actions-yarn@v3.0.0
       with:
           cmd: install
-          
+
     - name: build on yarn
       uses: borales/actions-yarn@v3.0.0
       with:
-          cmd: build # will run `yarn build` command  
-          
+          cmd: build # will run `yarn build` command
+
     - name: build on yarn
       uses: borales/actions-yarn@v3.0.0
       with:
-          cmd: deploy # will run `yarn build` command            
-      
+          cmd: deploy # will run `yarn build` command
+
