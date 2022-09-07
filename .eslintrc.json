@@ -20,11 +20,14 @@
     "prettier"
   ],
   "rules": {
-    "no-unused-vars": "warn"
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
     }
-  }
+  },
+  "ignorePatterns": [
+    "config",
+    "dist"
+  ]
 }
