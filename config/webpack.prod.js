@@ -10,6 +10,8 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     filename: 'js/[name].[contenthash].bundle.js',
+    publicPath: '/webpack-demo/',
+    clean: true,
   },
   plugins: [
     // Extracts CSS into separate files
