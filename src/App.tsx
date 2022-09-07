@@ -3,12 +3,19 @@ import './App.css';
 
 function App() {
     const [num, setNum] = useState(0)
+
+    const setNumber = () => {
+        const cat = {name: "Senya", age: 12}
+        console.log(cat)
+        setNum(num + 1)
+    }
+
     return (
         <div className="App">
             <h1>Hello! React</h1>
             <p>asdfasfdasfdasdf</p>
             <p>Count:{num}</p>
-            <button onClick={() => setNum(num + 1)}>Pluasdfs</button>
+            <button onClick={setNumber}>Plus</button>
         </div>
     );
 }

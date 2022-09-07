@@ -1,7 +1,6 @@
 const {merge} = require('webpack-merge')
 const common = require('./webpack.common.js');
 const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -11,11 +10,7 @@ module.exports = merge(common, {
         open: true,
         compress: true,
         hot: "only",
-        port: 8080,
-        static: {
-            directory: path.join(__dirname, './'),
-            serveIndex: true,
-        },
+        port: 8080
     },
     plugins: [new ReactRefreshPlugin()],
     module: {
