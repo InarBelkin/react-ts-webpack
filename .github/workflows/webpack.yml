@@ -19,18 +19,11 @@ jobs:
         with:
           node-version: '18'
 
-      - name: install Yarn
-        uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: install
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: build on yarn
-        uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build # will run `yarn build` command
+      - name: build site
+        run: yarn run build
 
-      - name: deploy on yarn
-        uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: run deploy # will run `yarn build` command
-
+      - name: build site
+        run: yarn run deploy
