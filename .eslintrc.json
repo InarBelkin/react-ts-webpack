@@ -1,5 +1,6 @@
 {
-  "parser": "@babel/eslint-parser",
+  //try to change it to @babel/eslint-parser if you have specific errors
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "es2021": true,
