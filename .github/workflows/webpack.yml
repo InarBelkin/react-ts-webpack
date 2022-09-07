@@ -9,32 +9,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: 'gh-pages_attempt'
+      - uses: actions/checkout@v3
+        with:
+          ref: 'gh-pages_attempt'
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: install Yarn
-      uses:  borales/actions-yarn@v3.0.0
-      with:
+      - name: install Yarn
+        uses: borales/actions-yarn@v3.0.0
+        with:
           cmd: install
 
-    - name: build on yarn
-      uses: borales/actions-yarn@v3.0.0
-      with:
+      - name: build on yarn
+        uses: borales/actions-yarn@v3.0.0
+        with:
           cmd: build # will run `yarn build` command
 
-    - name: build on yarn
-      uses: borales/actions-yarn@v3.0.0
-      with:
-          cmd: deploy # will run `yarn build` command
+      - name: deploy on yarn
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: run deploy # will run `yarn build` command
 
