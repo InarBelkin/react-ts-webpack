@@ -19,3 +19,5 @@ jobs:
 
       - name: Build 📦
         run: yarn run build
+
+      #add tests here later

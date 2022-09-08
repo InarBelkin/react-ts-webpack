@@ -21,6 +21,8 @@ jobs:
       - name: Build 📦
         run: yarn run build
 
+      #add tests here later
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
