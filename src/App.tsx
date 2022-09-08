@@ -17,6 +17,7 @@ function App() {
       <p>asdfasfdasfdasdf</p>
       <p>Do you see it?</p>
       <p>test actions</p>
+      <p>test actions 2</p>
       <p>Count:{num}</p>
       <button onClick={setNumber}>Plus</button>
     </div>
